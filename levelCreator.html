@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      * {
+        font-family: monospace;
+        font-size: 16px;
+      }
+      .a0 {
+        color: #fff;
+      }
+      .a1 {
+        color: #000;
+      }
+      .a2 {
+        color: #777;
+      }
+      .a3 {
+        color: #d48;
+      }
+      .a4 {
+        color: #0f0;
+      }
+      .a5 {
+        color: #f00;
+      }
+      .a6 {
+        color: #00f;
+      }
+      .info {
+        position: absolute;
+        left: 6em;
+        top: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <textarea id="a" cols="10" rows="10"></textarea>
+    <div class="info">
+      <ol>
+        <li class="a1">Platform</li>
+        <li class="a2">Platform but grey</li>
+        <li class="a3">Win location</li>
+        <li class="a4">Spawn location</li>
+        <li class="a5">Death</li>
+        <li class="a6">Bouncy</li>
+      </ol>
+    </div>
+    <div id="output">
+    </div>
+    <div id="o2">
+    </div>
+    <script>
+      document.getElementById("a").addEventListener("change", function() {
+        let count = 0;
+        let output = "";
+        let output2 = "";
+        let list = document.getElementById("a").value.replaceAll("\n", "");
+        for (let i = 0; i < list.length; i++) {
+          output += `<span class="a${list[i]}">W</span>`;
+          output2 += `${list[i]}, `;
+          count++;
+          if (count == 10) {
+            output += "<br>";
+            output2 += "<br>";
+            count = 0;
+          }
+        }
+        document.getElementById("output").innerHTML = output;
+        document.getElementById("o2").innerHTML = output2;
+      });
+    </script>
+  </body>
+</html>
